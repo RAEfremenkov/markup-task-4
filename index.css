@@ -1,0 +1,205 @@
+body
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes rotate-horizontal
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+
+    50%
+    {
+        transform: rotate(15deg);
+    }
+
+    100%
+    {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate-vertical
+{
+    0%
+    {
+        transform: rotate(90deg);
+    }
+
+    50%
+    {
+        transform: rotate(85deg);
+    }
+
+    100%
+    {
+        transform: rotate(90deg);
+    }
+}
+
+.list-view:not(:checked) ~ .list-view-label
+{
+    transform: rotate(90deg);
+}
+
+.list-view:checked ~ .list-view-label
+{
+    transform: rotate(0deg);
+}
+
+.list-view:not(:checked) ~ .list-view-label:hover
+{
+    animation-name: rotate-vertical;
+    animation-duration: .2s;
+}
+
+.list-view:checked ~ .list-view-label:hover
+{
+    animation-name: rotate-horizontal;
+    animation-duration: .2s;
+}
+
+.list-view
+{
+    display: none;
+}
+
+.list-view-label
+{
+    font-size: 37px;
+    width: 37px;
+    cursor: pointer;
+    transition: .2s;
+    display: block;
+}
+
+main
+{
+    width: 100%;
+    text-align: center;
+}
+
+.card
+{
+    vertical-align: top;
+    text-align: left;
+    width: 217px;
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #e7e7e7;
+    height: 297px;
+    transition: .1s;
+    overflow: hidden;
+}
+
+.card:hover
+{
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .1);
+}
+
+.list-view:checked ~ main .card
+{
+    height: auto;
+    margin: 12px 0;
+    width: 100%;
+    padding: 15px;
+}
+
+.card__img
+{
+    display: block;
+    margin: 0 auto;
+    height: 143px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.card__img:hover
+{
+    transform: rotate(-1deg);
+}
+
+.card__body
+{
+    padding: 0 15px 15px;
+}
+
+.list-view:checked ~ main .card__body
+{
+    padding: 0;
+}
+
+.card__title
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 10px 0;
+    font-weight: 400;
+
+}
+
+.card__title a
+{
+    color: inherit;
+    position: relative;
+    cursor: pointer;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card__title a:after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width .3s ease-out;
+    background-color: black;
+}
+
+.card__title a:hover:after
+{
+    width: 100%;
+}
+
+.card__characteristics
+{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    font-size: .8em;
+}
+
+.list-view:checked ~ main .card__characteristics
+{
+    display: none;
+}
+
+.card__characteristic
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card__characteristic:last-child
+{
+    margin-top: 10px;
+}
+
+.card__description
+{
+    display: none;
+}
+
+.list-view:checked ~ main .card__description
+{
+    display: block;
+}
